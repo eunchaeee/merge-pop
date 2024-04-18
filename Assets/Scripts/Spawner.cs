@@ -56,7 +56,7 @@ public class Spawner : MonoBehaviour
 
     private void Spawn()
     {
-        currentFruit = Instantiate(fruitData.fruitList[Random.Range(0, fruitData.fruitList.Count - 1)], transform, true);
+        currentFruit = Instantiate(fruitData.RandomFruit, transform, true);
         currentFruit.transform.localPosition = Vector3.zero;
         ChangeState(SpawnerState.Holding);
     }

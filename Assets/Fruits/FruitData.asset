@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fruitList:
   - {fileID: 4794681955864236582, guid: c0ad58e63089ad44baa717f6ac3012d3, type: 3}
+  - {fileID: 4794681955864236582, guid: 3707f40b2c919fa4b99cc8919ffe5b0b, type: 3}

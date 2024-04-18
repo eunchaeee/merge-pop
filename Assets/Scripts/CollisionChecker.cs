@@ -9,5 +9,6 @@ public class CollisionChecker : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         isTouchGround = true;
+        Debug.Log($"go : {gameObject.name}, {transform.position}, collision : {collision.collider.name}, pos : {collision.transform.position}, {Time.frameCount}");
     }
 }
