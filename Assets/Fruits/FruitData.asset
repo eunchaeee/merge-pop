@@ -12,6 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bd42d5b3773da245aad724ffbd9bade, type: 3}
   m_Name: FruitData
   m_EditorClassIdentifier: 
-  fruitList:
-  - {fileID: 4794681955864236582, guid: c0ad58e63089ad44baa717f6ac3012d3, type: 3}
-  - {fileID: 4794681955864236582, guid: 3707f40b2c919fa4b99cc8919ffe5b0b, type: 3}
+  fruitInformations:
+  - level: 0
+    name: Cherry
+    color: {r: 0.6784314, g: 0.11764706, b: 0.11764706, a: 1}
+    scale: 0.3
+  - level: 0
+    name: Grape
+    color: {r: 0.27917653, g: 0.11764707, b: 0.6784314, a: 1}
+    scale: 0.4
+  basePrefab: {fileID: 4794681955864236582, guid: c0ad58e63089ad44baa717f6ac3012d3, type: 3}

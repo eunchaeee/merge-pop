@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5016f59b1beee04e85fda30547b2a13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fruitData: {fileID: 11400000, guid: a2bb1f785131d314d975139be31405e0, type: 2}
+  fruitFactory: {fileID: 11400000, guid: a2bb1f785131d314d975139be31405e0, type: 2}
   leftWall: {fileID: 289866317}
   rightWall: {fileID: 638553622}
   cam: {fileID: 519420031}
