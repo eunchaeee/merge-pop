@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bd42d5b3773da245aad724ffbd9bade, type: 3}
-  m_Name: FruitData
+  m_Script: {fileID: 11500000, guid: 00037c9c2cba64b44a19e4b8f8579269, type: 3}
+  m_Name: CollisionMessenger
   m_EditorClassIdentifier: 
-  fruitList:
-  - {fileID: 4794681955864236582, guid: c0ad58e63089ad44baa717f6ac3012d3, type: 3}
+  CollisionEvent:
+    m_PersistentCalls:
+      m_Calls: []

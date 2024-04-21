@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private FruitData fruitData;
+    [SerializeField] private FruitFactory fruitFactory;
     [SerializeField] private Transform leftWall;
     [SerializeField] private Transform rightWall;
     [SerializeField] private Camera cam;
@@ -37,6 +37,7 @@ public class Spawner : MonoBehaviour
             case SpawnerState.Holding:
                 float x = Mathf.Clamp(cam.ScreenToWorldPoint(Input.mousePosition).x, xMin, xMax);
                 transform.position = new Vector2(x, transform.position.y);
+                currentFruit.transform.position = transform.position;
                 if (Input.GetMouseButtonDown(0))
                 {
                     currentFruit.GetComponent<Rigidbody2D>().gravityScale = 1f;
@@ -44,7 +45,7 @@ public class Spawner : MonoBehaviour
                 }               
                 break;
             case SpawnerState.Dropping:
-                if (currentFruit.GetComponent<CollisionChecker>().isTouchGround)
+                if (currentFruit.GetComponent<Fruit>().isTouchGround)
                 {
                     currentFruit.transform.parent = pool;
                     Spawn();
@@ -56,7 +57,7 @@ public class Spawner : MonoBehaviour
 
     private void Spawn()
     {
-        currentFruit = Instantiate(fruitData.fruitList[Random.Range(0, fruitData.fruitList.Count - 1)], transform, true);
+        currentFruit = fruitFactory.InstantiateRandomFruit();
         currentFruit.transform.localPosition = Vector3.zero;
         ChangeState(SpawnerState.Holding);
     }
