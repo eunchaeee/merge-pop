@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "FruitData", menuName = "ScriptableObject/FruitData")]
+[CreateAssetMenu(fileName = "FruitFactory", menuName = "ScriptableObject/FruitFactory")]
 public class FruitFactory : ScriptableObject
 {
+    [SerializeField] private CollisionMessenger collisionMessenger;
     [SerializeField] private List<FruitInfo> fruitInformations = new();
 
     [SerializeField] private GameObject basePrefab;
@@ -14,7 +15,9 @@ public class FruitFactory : ScriptableObject
         FruitInfo info = fruitInformations[Random.Range(0, fruitInformations.Count)];
 
         var fruitObj = Instantiate(basePrefab);
-        fruitObj.GetComponent<Fruit>().SetFruitInfo(info);
+        Fruit f = fruitObj.GetComponent<Fruit>();
+        f.SetFruitInfo(info);
+        f.InjectCollisionMessenger(collisionMessenger);
         return fruitObj;
     }
 
@@ -25,6 +28,6 @@ public class FruitFactory : ScriptableObject
 
     public void LevelUp(Fruit fruit)
     {
-        fruit.SetFruitInfo(GetFruitInfo(fruit.level+1));
+        fruit.SetFruitInfo(GetFruitInfo(fruit.Level+1));
     }
 }

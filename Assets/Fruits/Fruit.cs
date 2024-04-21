@@ -1,56 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Fruit : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer spriteRenderer;
-    public int level;
+    private UnityEvent<Transform, Collision2D> collisionMessenger;
 
-    public bool isTouchGround = false;
+    public int Level { get; private set; }
+    public bool IsTouched { get; private set; }
 
-    [SerializeField] private FruitFactory fruitFactory;
 
     public void SetFruitInfo(FruitInfo info)
     {
-        level = info.level;
+        Level = info.level;
         gameObject.name = info.name;
         spriteRenderer.color = info.color;
         transform.localScale = Vector3.one * info.scale;
     }
 
+    public void InjectCollisionMessenger(CollisionMessenger messenger)
+    {
+        collisionMessenger = messenger.CollisionEvent;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        isTouchGround = true;
+        IsTouched = true;
 
         if (collision.gameObject.TryGetComponent(out Fruit f))
         {
-            if (level == f.level)
+            if (Level == f.Level)
             {
-                // merge!
-                if (collision.transform.position.y > transform.position.y)
-                {
-                    // level up me
-                    fruitFactory.LevelUp(this);
-                }
-                else if (collision.transform.position.y == transform.position.y)
-                {
-                    if (collision.transform.position.x > transform.position.x)
-                    {
-                        // level up me
-                        fruitFactory.LevelUp(this);
-                    }
-                    else
-                    {
-                        // Hide
-                        gameObject.SetActive(false);
-                    }
-                }
-                else
-                {
-                    // hide
-                    gameObject.SetActive(false);
-                }
+                collisionMessenger.Invoke(transform, collision);
             }
         }
     }
