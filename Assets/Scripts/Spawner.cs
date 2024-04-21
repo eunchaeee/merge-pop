@@ -45,7 +45,7 @@ public class Spawner : MonoBehaviour
                 }               
                 break;
             case SpawnerState.Dropping:
-                if (currentFruit.GetComponent<Fruit>().isTouchGround)
+                if (currentFruit.GetComponent<Fruit>().IsTouched)
                 {
                     currentFruit.transform.parent = pool;
                     Spawn();
