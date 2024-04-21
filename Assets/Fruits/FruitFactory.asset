@@ -21,9 +21,37 @@ MonoBehaviour:
   - level: 1
     name: Grape
     color: {r: 0.27917653, g: 0.11764707, b: 0.6784314, a: 1}
-    scale: 0.4
+    scale: 0.3
   - level: 2
-    name: Apple
+    name: Pair
     color: {r: 0.11764707, g: 0.6784314, b: 0.17946792, a: 1}
-    scale: 0.6
+    scale: 0.4
+  - level: 3
+    name: Banana
+    color: {r: 1, g: 0.9194797, b: 0.36320752, a: 1}
+    scale: 0.5
+  - level: 4
+    name: Gam
+    color: {r: 0.9150943, g: 0.5594854, b: 0.2460395, a: 1}
+    scale: 0.75
+  - level: 4
+    name: Apple
+    color: {r: 0.9137255, g: 0.28288612, b: 0.24705878, a: 1}
+    scale: 0.85
+  - level: 5
+    name: Peach
+    color: {r: 1, g: 0.6462264, b: 0.86879003, a: 1}
+    scale: 1
+  - level: 6
+    name: Melon
+    color: {r: 0.6609801, g: 1, b: 0.64705884, a: 1}
+    scale: 1.25
+  - level: 7
+    name: Pineapple
+    color: {r: 1, g: 0.88191336, b: 0.64705884, a: 1}
+    scale: 1.35
+  - level: 8
+    name: WaterMelon
+    color: {r: 0.14015941, g: 0.3018868, b: 0.12388752, a: 1}
+    scale: 1.5
   basePrefab: {fileID: 4794681955864236582, guid: c0ad58e63089ad44baa717f6ac3012d3, type: 3}

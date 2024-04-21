@@ -10,19 +10,18 @@ public class CollisionManager : MonoBehaviour
         messenger.CollisionEvent.AddListener(ProcessCollision);
     }
 
-    private void ProcessCollision(Transform t, Collision2D collision)
+    private void ProcessCollision(Fruit f, Collision2D collision)
     {
-        Debug.Log($"CollisionManager::ProcessCollision {collision}");
-        Fruit f = t.GetComponent<Fruit>();
+        Debug.Log($"{f.gameObject.name} {f.transform.position}, {collision.gameObject.name} {collision.transform.position}");
 
-        if (collision.transform.position.y > t.position.y)
+        if (collision.transform.position.y > f.transform.position.y)
         {
             // level up me
             fruitFactory.LevelUp(f);
         }
-        else if (collision.transform.position.y == t.position.y)
+        else if (collision.transform.position.y == f.transform.position.y)
         {
-            if (collision.transform.position.x > t.position.x)
+            if (collision.transform.position.x > f.transform.position.x)
             {
                 // level up me
                 fruitFactory.LevelUp(f);
@@ -30,13 +29,13 @@ public class CollisionManager : MonoBehaviour
             else
             {
                 // Hide
-                t.gameObject.SetActive(false);
+                f.gameObject.SetActive(false);
             }
         }
         else
         {
             // hide
-            t.gameObject.SetActive(false);
+            f.gameObject.SetActive(false);
         }
     }
 }

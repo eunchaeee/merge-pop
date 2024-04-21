@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class Fruit : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer spriteRenderer;
-    private UnityEvent<Transform, Collision2D> collisionMessenger;
+    private UnityEvent<Fruit, Collision2D> collisionMessenger;
 
     public int Level { get; private set; }
     public bool IsTouched { get; private set; }
@@ -33,7 +33,7 @@ public class Fruit : MonoBehaviour
         {
             if (Level == f.Level)
             {
-                collisionMessenger.Invoke(transform, collision);
+                collisionMessenger.Invoke(this, collision);
             }
         }
     }

@@ -5,6 +5,6 @@ using UnityEngine.Events;
 [CreateAssetMenu(fileName = "CollisionMessenger", menuName = "ScriptableObject/CollisionMessenger")]
 public class CollisionMessenger : ScriptableObject
 {
-    public UnityEvent<Transform, Collision2D> CollisionEvent;
+    public UnityEvent<Fruit, Collision2D> CollisionEvent;
 }
 
