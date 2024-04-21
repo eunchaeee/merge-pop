@@ -12,7 +12,7 @@ public class FruitFactory : ScriptableObject
 
     public GameObject InstantiateRandomFruit()
     {
-        FruitInfo info = fruitInformations[Random.Range(0, fruitInformations.Count)];
+        FruitInfo info = fruitInformations[Random.Range(0, 5)];
 
         var fruitObj = Instantiate(basePrefab);
         Fruit f = fruitObj.GetComponent<Fruit>();
